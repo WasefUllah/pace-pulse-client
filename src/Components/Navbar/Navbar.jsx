@@ -51,18 +51,18 @@ const Navbar = () => {
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1 space-x-2 ">
-          <NavLink to={"/"} className="py-1 px-2 hover:bg-gray-700 rounded-2xl">
+          <NavLink to={"/"} className="py-1 px-2 hover:bg-gray-700 rounded-2xl font-semibold lg:text-lg">
             Home
           </NavLink>
           <NavLink
             to={"/dashboard"}
-            className="py-1 px-2 hover:bg-gray-700 rounded-2xl"
+            className="py-1 px-2 hover:bg-gray-700 rounded-2xl font-semibold lg:text-lg"
           >
             Dashboard
           </NavLink>
           <NavLink
             to={"/marathon"}
-            className="py-1 px-2 hover:bg-gray-700 rounded-2xl"
+            className="py-1 px-2 hover:bg-gray-700 rounded-2xl font-semibold lg:text-lg"
           >
             Marathon
           </NavLink>
