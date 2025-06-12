@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router";
+import { Link, NavLink } from "react-router";
 
 const Navbar = () => {
   return (
@@ -47,11 +47,18 @@ const Navbar = () => {
             </NavLink>
           </ul>
         </div>
-        <a className="btn btn-ghost text-xl">daisyUI</a>
+        <img
+          src={"https://i.ibb.co/wNqn7smp/logo.jpg"}
+          alt=""
+          className="w-10 h-10 md:w-14 md:h-14 lg:w-16 lg:h-16 rounded-full"
+        />
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1 space-x-2 ">
-          <NavLink to={"/"} className="py-1 px-2 hover:bg-gray-700 rounded-2xl font-semibold lg:text-lg">
+          <NavLink
+            to={"/"}
+            className="py-1 px-2 hover:bg-gray-700 rounded-2xl font-semibold lg:text-lg"
+          >
             Home
           </NavLink>
           <NavLink
@@ -74,8 +81,13 @@ const Navbar = () => {
           alt=""
           className="w-10 h-10 md:w-14 md:h-14 lg:w-16 lg:h-16 rounded-full"
         />
-        <button className="btn btn-primary btn-xs md:btn-lg">Register</button>
-        <button className="btn btn-primary btn-xs md:btn-lg">Login</button>
+        <Link to={"/register"}>
+          <button className="btn btn-primary btn-xs md:btn-lg">Register</button>
+        </Link>
+
+        <Link to={"/login"}>
+          <button className="btn btn-primary btn-xs md:btn-lg">Login</button>
+        </Link>
       </div>
     </div>
   );
