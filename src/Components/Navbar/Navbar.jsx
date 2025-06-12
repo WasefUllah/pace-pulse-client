@@ -1,7 +1,26 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link, NavLink } from "react-router";
+import { AuthContext } from "../../Provider/AuthProvider";
+import Swal from "sweetalert2";
 
 const Navbar = () => {
+  const { user, logOut } = useContext(AuthContext);
+
+  const handleLogoutBtn = () => {
+    logOut()
+      .then(() => {
+        // Sign-out successful.
+        Swal.fire({
+          title: "Logged out!",
+          icon: "success",
+          draggable: true,
+        });
+      })
+      .catch(() => {
+        // An error happened.
+      });
+  };
+
   return (
     <div className="navbar bg-base-100 shadow-sm">
       <div className="navbar-start">
@@ -33,12 +52,14 @@ const Navbar = () => {
             >
               Home
             </NavLink>
-            <NavLink
-              to={"/dashboard"}
-              className="py-1 px-2 hover:bg-gray-700 rounded-2xl"
-            >
-              Dashboard
-            </NavLink>
+            {user && (
+              <NavLink
+                to={"/dashboard"}
+                className="py-1 px-2 hover:bg-gray-700 rounded-2xl"
+              >
+                Dashboard
+              </NavLink>
+            )}
             <NavLink
               to={"/marathon"}
               className="py-1 px-2 hover:bg-gray-700 rounded-2xl"
@@ -61,12 +82,14 @@ const Navbar = () => {
           >
             Home
           </NavLink>
-          <NavLink
-            to={"/dashboard"}
-            className="py-1 px-2 hover:bg-gray-700 rounded-2xl font-semibold lg:text-lg"
-          >
-            Dashboard
-          </NavLink>
+          {user && (
+            <NavLink
+              to={"/dashboard"}
+              className="py-1 px-2 hover:bg-gray-700 rounded-2xl font-semibold lg:text-lg"
+            >
+              Dashboard
+            </NavLink>
+          )}
           <NavLink
             to={"/marathon"}
             className="py-1 px-2 hover:bg-gray-700 rounded-2xl font-semibold lg:text-lg"
@@ -76,18 +99,37 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-end space-x-2 md:space-x-3 lg:space-x-4">
-        <img
-          src={"https://i.ibb.co/LXBVyNrh/Screenshot-2025-04-22-150139.png"}
-          alt=""
-          className="w-10 h-10 md:w-14 md:h-14 lg:w-16 lg:h-16 rounded-full"
-        />
-        <Link to={"/register"}>
-          <button className="btn btn-primary btn-xs md:btn-lg">Register</button>
-        </Link>
+        {user && (
+          <img
+            src={user?.photoURL}
+            alt=""
+            className="w-10 h-10 md:w-14 md:h-14 lg:w-16 lg:h-16 rounded-full"
+          />
+        )}
+        {user ? (
+          <Link>
+            <button
+              onClick={handleLogoutBtn}
+              className="btn btn-primary btn-xs md:btn-lg"
+            >
+              Logout
+            </button>
+          </Link>
+        ) : (
+          <div className="space-x-2 md:space-x-3 lg:space-x-4">
+            <Link to={"/register"}>
+              <button className="btn btn-primary btn-xs md:btn-lg">
+                Register
+              </button>
+            </Link>
 
-        <Link to={"/login"}>
-          <button className="btn btn-primary btn-xs md:btn-lg">Login</button>
-        </Link>
+            <Link to={"/login"}>
+              <button className="btn btn-primary btn-xs md:btn-lg">
+                Login
+              </button>
+            </Link>
+          </div>
+        )}
       </div>
     </div>
   );

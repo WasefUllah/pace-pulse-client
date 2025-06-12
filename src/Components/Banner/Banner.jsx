@@ -2,9 +2,6 @@ import React from "react";
 import BlurText from "../BlurText/BlurText";
 
 const Banner = () => {
-  const handleAnimationComplete = () => {
-    console.log("Animation completed!");
-  };
   return (
     <div>
       <div className="carousel w-full">
@@ -18,7 +15,7 @@ const Banner = () => {
               delay={150}
               animateBy="words"
               direction="top"
-              onAnimationComplete={handleAnimationComplete}
+              onAnimationComplete
               className="text-3xl md:text-6xl lg:text-8xl text-blue-700 font-bold mt-44 ml-5 md:ml-10 md:mt-40 lg:ml-20 lg:mt-40 "
             />
             <BlurText
@@ -26,7 +23,6 @@ const Banner = () => {
               delay={150}
               animateBy="words"
               direction="top"
-              onAnimationComplete={handleAnimationComplete}
               className="text-xl md:text-3xl lg:text-4xl text-blue-400 font-bold mt-2 ml-5 md:ml-10 md:mt-4 lg:ml-20 lg:mt-3"
             />
           </div>
@@ -41,7 +37,6 @@ const Banner = () => {
               delay={150}
               animateBy="words"
               direction="top"
-              onAnimationComplete={handleAnimationComplete}
               className="text-3xl md:text-6xl lg:text-8xl text-blue-700  font-bold mt-44 ml-5 md:ml-10 md:mt-40 lg:ml-20 lg:mt-40 "
             />
             <BlurText
@@ -49,7 +44,6 @@ const Banner = () => {
               delay={150}
               animateBy="words"
               direction="top"
-              onAnimationComplete={handleAnimationComplete}
               className="text-xl md:text-3xl lg:text-4xl text-blue-400 font-bold mt-2 ml-5 md:ml-10 md:mt-4 lg:ml-20 lg:mt-3"
             />
           </div>
@@ -64,7 +58,6 @@ const Banner = () => {
               delay={150}
               animateBy="words"
               direction="top"
-              onAnimationComplete={handleAnimationComplete}
               className="text-3xl md:text-6xl lg:text-8xl text-blue-700 font-bold mt-44 ml-5 md:ml-10 md:mt-40 lg:ml-20 lg:mt-40 "
             />
             <BlurText
@@ -72,7 +65,6 @@ const Banner = () => {
               delay={150}
               animateBy="words"
               direction="top"
-              onAnimationComplete={handleAnimationComplete}
               className="text-xl md:text-3xl lg:text-4xl text-blue-400 font-bold mt-2 ml-5 md:ml-10 md:mt-4 lg:ml-20 lg:mt-3"
             />
           </div>
@@ -87,7 +79,6 @@ const Banner = () => {
               delay={150}
               animateBy="words"
               direction="top"
-              onAnimationComplete={handleAnimationComplete}
               className="text-3xl md:text-6xl lg:text-8xl text-blue-700 font-bold mt-44 ml-5 md:ml-10 md:mt-40 lg:ml-20 lg:mt-40 "
             />
             <BlurText
@@ -95,7 +86,6 @@ const Banner = () => {
               delay={150}
               animateBy="words"
               direction="top"
-              onAnimationComplete={handleAnimationComplete}
               className="text-xl md:text-3xl lg:text-4xl text-blue-400 font-bold mt-2 ml-5 md:ml-10 md:mt-4 lg:ml-20 lg:mt-3"
             />
           </div>
