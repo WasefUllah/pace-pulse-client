@@ -1,0 +1,32 @@
+[
+  {
+    "username": "marathonJack",
+    "rating": 4.8,
+    "comment": "An amazing marathon! Loved the energy, the crowd, and the support from volunteers.",
+    "photoUrl": "https://i.ibb.co/4ZFNrQnf/p1.jpg"
+  },
+  {
+    "username": "sarahStrides",
+    "rating": 4.5,
+    "comment": "Well organized! Only wish there were more water stations.",
+    "photoUrl": "https://i.ibb.co/tMC83BMG/p2.jpg"
+  },
+  {
+    "username": "runWithTom",
+    "rating": 5.0,
+    "comment": "Hands down the best race I've ever joined. Will come back next year for sure!",
+    "photoUrl": "https://i.ibb.co/3yFD7r4g/p3.jpg"
+  },
+  {
+    "username": "lisaLaps",
+    "rating": 3.9,
+    "comment": "Good vibe but the route was a bit confusing for first-timers.",
+    "photoUrl": "https://i.ibb.co/LhkBQQTB/p4.jpg"
+  },
+  {
+    "username": "captainMiles",
+    "rating": 4.7,
+    "comment": "Loved the post-race refreshments and medal quality! Great experience.",
+    "photoUrl": "https://i.ibb.co/PzrBRVcx/p5.jpg"
+  }
+]

@@ -91,12 +91,8 @@ const Banner = () => {
           </div>
         </div>
       </div>
-      <div className="flex w-full justify-center gap-2 py-2">
-        <a href="#item1" className="btn btn-xs"></a>
-        <a href="#item2" className="btn btn-xs"></a>
-        <a href="#item3" className="btn btn-xs"></a>
-        <a href="#item4" className="btn btn-xs"></a>
-      </div>
+    
+
     </div>
   );
 };
