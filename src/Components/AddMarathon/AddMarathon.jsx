@@ -35,6 +35,7 @@ const AddMarathon = () => {
             icon: "success",
             draggable: true,
           });
+          form.reset();
         }
       })
       .catch((err) => console.log(err));

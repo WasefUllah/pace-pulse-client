@@ -9,6 +9,10 @@ import MyMarathonList from "../Components/MyMarathonList/MyMarathonList";
 import MyApplyList from "../Components/MyApplyList/MyApplyList";
 import Login from "../Components/Login/Login";
 import Register from "../Components/Register/Register";
+import PrivateRoute from "../PrivateRoute/Privateroute";
+import Loader from "../Components/Loader/Loader";
+import ShowMarathonDetails from "../Components/ShowMarathonDetails/ShowMarathonDetails";
+import RegisterMarathon from "../Components/RegisterMarathon/RegisterMarathon";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -28,15 +32,46 @@ export const router = createBrowserRouter([
       },
       {
         path: "/addmarathon",
-        Component: AddMarathon,
+        element: (
+          <PrivateRoute>
+            <AddMarathon></AddMarathon>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/mymarathonlist",
-        Component: MyMarathonList,
+        element: (
+          <PrivateRoute>
+            <MyMarathonList></MyMarathonList>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/myapplylist",
-        Component: MyApplyList,
+        element: (
+          <PrivateRoute>
+            <MyApplyList></MyApplyList>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/marathons/:id",
+        loader: ({ params }) =>
+          fetch(`http://localhost:3000/marathons/${params.id}`),
+        hydrateFallbackElement: <Loader></Loader>,
+        element: (
+          <PrivateRoute>
+            <ShowMarathonDetails></ShowMarathonDetails>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/registermarathon",
+        element: (
+          <PrivateRoute>
+            <RegisterMarathon></RegisterMarathon>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/login",
