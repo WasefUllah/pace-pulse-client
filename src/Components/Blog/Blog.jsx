@@ -24,7 +24,7 @@ const Blog = ({ blogs }) => {
                 className="w-14 h-14 rounded-full object-center object-cover border"
               />
               <div>
-                <p className="font-semibold">
+                <div className="font-semibold">
                   <BlurText
                     text={blog.username}
                     delay={150}
@@ -32,11 +32,11 @@ const Blog = ({ blogs }) => {
                     direction="top"
                     // className="text-primary text-xl md:text-3xl lg:text-5xl font-bold my-4"
                   />
-                </p>
+                </div>
                 <p className="text-sm text-gray-500">Rating: {blog.rating}⭐</p>
               </div>
             </div>
-            <p className="text-gray-700">
+            <div className="text-gray-700">
               <BlurText
                 text={blog.comment}
                 delay={150}
@@ -44,7 +44,7 @@ const Blog = ({ blogs }) => {
                 direction="top"
                 // className="text-primary text-xl md:text-3xl lg:text-5xl font-bold my-4"
               />
-            </p>
+            </div>
           </div>
         ))}
       </div>
