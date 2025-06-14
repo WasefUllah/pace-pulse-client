@@ -13,7 +13,9 @@ const ShowMarathonDetails = () => {
 
   const handleRegBtn = () => {
     if (now > start && now < end) {
-      navigate("/registermarathon");
+      navigate("/registermarathon", {
+        state: marathon,
+      });
     } else {
       if (now < start) {
         Swal.fire({

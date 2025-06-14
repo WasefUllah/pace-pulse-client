@@ -1,11 +1,145 @@
-import React from 'react';
+import React, { useContext } from "react";
+import { AuthContext } from "../../Provider/AuthProvider";
+import { useLocation } from "react-router";
+import axios from "axios";
+import Swal from "sweetalert2";
 
 const RegisterMarathon = () => {
-    return (
+  const { user } = useContext(AuthContext);
+  const location = useLocation();
+  //   const marathon = location.state;
+
+  //   const navigate = useNavigate();
+
+  const marathon = location?.state || {}; // Passed from previous page
+  //   console.log(marathon);
+  //   const [formData, setFormData] = useState({
+  //     firstName: "",
+  //     lastName: "",
+  //     contactNumber: "",
+  //     additionalInfo: "",
+  //   });
+
+  //   const handleChange = (e) => {
+  //     const { name, value } = e.target;
+  //     setFormData((prev) => ({
+  //       ...prev,
+  //       [name]: value,
+  //     }));
+  //   };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const form = e.target;
+
+    // const registrationData = {
+    //   email: user.email,
+    //   marathonId: marathon._id,
+    //   marathonTitle: marathon.title,
+    //   marathonStartDate: marathon.marathonStartDate,
+    //   ...formData,
+    // };
+
+    const formData = new FormData(form);
+    const registration = Object.fromEntries(formData.entries());
+    registration.userEmail = marathon.createdBy;
+    registration.marathonId = marathon._id;
+    console.log(registration);
+
+    try {
+      await axios.post("http://localhost:3000/registrations", registration);
+      const res = await axios.patch(
+        `http://localhost:3000/marathon/increment/${marathon._id}`
+      );
+      if (res.data.modifiedCount) {
+        Swal.fire({
+          title: "Registration complete!",
+          icon: "success",
+          draggable: true,
+        });
+      }
+    } catch (error) {
+      console.error("Registration failed:", error);
+    }
+  };
+
+  return (
+    <div className="max-w-xl mx-auto mt-10 p-6 border rounded-lg shadow-md bg-base-100">
+      <h2 className="text-2xl font-semibold text-primary mb-4">
+        Register for Marathon
+      </h2>
+      <form onSubmit={handleSubmit} className="space-y-4">
         <div>
-            register for marathon
+          <label>Email (auto-filled)</label>
+          <input
+            type="email"
+            readOnly
+            value={user.email}
+            className="input input-bordered w-full"
+          />
         </div>
-    );
+        <div>
+          <label>Marathon Title</label>
+          <input
+            type="text"
+            readOnly
+            value={marathon.title}
+            className="input input-bordered w-full"
+          />
+        </div>
+        <div>
+          <label>Marathon Start Date</label>
+          <input
+            type="text"
+            readOnly
+            value={new Date(marathon.marathonStartDate).toLocaleDateString()}
+            className="input input-bordered w-full"
+          />
+        </div>
+        <div>
+          <label>First Name</label>
+          <input
+            type="text"
+            name="firstName"
+            required
+            // value={formData.firstName}
+            className="input input-bordered w-full"
+          />
+        </div>
+        <div>
+          <label>Last Name</label>
+          <input
+            type="text"
+            name="lastName"
+            required
+            // value={formData.lastName}
+            className="input input-bordered w-full"
+          />
+        </div>
+        <div>
+          <label>Contact Number</label>
+          <input
+            type="text"
+            name="contactNumber"
+            required
+            // value={formData.contactNumber}
+            className="input input-bordered w-full"
+          />
+        </div>
+        <div>
+          <label>Additional Info</label>
+          <textarea
+            name="additionalInfo"
+            // value={formData.additionalInfo}
+            className="textarea textarea-bordered w-full"
+          />
+        </div>
+        <button type="submit" className="btn btn-primary w-full">
+          Submit Registration
+        </button>
+      </form>
+    </div>
+  );
 };
 
 export default RegisterMarathon;
