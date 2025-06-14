@@ -43,11 +43,14 @@ const ShowMarathonDetails = () => {
         </div>
       </div>
       <div className=" mt-4 p-6  shadow-lg rounded-xl space-y-4 text-blue-300">
-        <div className="text-base md:text-lg text-primary flex justify-start items-center gap-0.5">
+        <div className="text-base md:text-lg text-primary flex justify-start items-start gap-0.5">
           <span className="font-semibold">
             <MakeBlurText text="Description: " />
           </span>
-          <MakeBlurText text={marathon.description} />
+          <span>
+            {" "}
+            <MakeBlurText text={marathon.description} />
+          </span>
         </div>
 
         <div className="text-base md:text-lg text-primary flex justify-start items-center gap-0.5">

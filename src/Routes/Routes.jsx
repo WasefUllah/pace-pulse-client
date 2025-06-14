@@ -55,6 +55,9 @@ export const router = createBrowserRouter([
         ),
       },
       {
+        path: "/update"
+      },
+      {
         path: "/marathons/:id",
         loader: ({ params }) =>
           fetch(`http://localhost:3000/marathons/${params.id}`),

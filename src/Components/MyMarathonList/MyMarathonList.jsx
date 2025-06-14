@@ -3,16 +3,19 @@ import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import MakeBlurText from "../MakeBlurText.jsx/MakeBlurText";
 import { format } from "date-fns";
+import UpdateMarathon from "../UpdateMarathon/UpdateMarathon";
 
 const MyMarathonList = () => {
   const [marathons, setMarathons] = useState([]);
   const { user } = useContext(AuthContext);
+  const [id, setId] = useState(null);
+   const [refresh, setRefresh] = useState(false);
 
   useEffect(() => {
     axios(`http://localhost:3000/allmarathons?email=${user.email}`)
       .then((res) => setMarathons(res.data))
       .catch((err) => console.log(err));
-  }, [user.email]);
+  }, [user.email, refresh]);
 
   return (
     <div className="p-4">
@@ -47,18 +50,34 @@ const MyMarathonList = () => {
                   {format(new Date(marathon.endRegDate), "do MMMM, yyyy")}
                 </td>
                 <td className="px-4 py-2">
-                  {format(new Date(marathon.marathonStartDate), "do MMMM, yyyy")}
+                  {format(
+                    new Date(marathon.marathonStartDate),
+                    "do MMMM, yyyy"
+                  )}
                 </td>
                 <td className="px-4 py-2">
                   <div className="flex flex-col gap-1 md:flex-row md:gap-2">
-                    <button className="btn btn-xs md:btn-sm btn-primary">Update</button>
-                    <button className="btn btn-xs md:btn-sm btn-error">Delete</button>
+                    <button
+                      className="btn btn-xs md:btn-sm btn-primary"
+                      onClick={() => {
+                        setId(marathon._id);
+                        document.getElementById("my_modal_2").showModal();
+                      }}
+                    >
+                      Update
+                    </button>
+                    <button className="btn btn-xs md:btn-sm btn-error">
+                      Delete
+                    </button>
                   </div>
                 </td>
               </tr>
             ))}
           </tbody>
         </table>
+        <dialog id="my_modal_2" className="modal">
+          {id && <UpdateMarathon marathonId={id} refresh={refresh} setRefresh={setRefresh}></UpdateMarathon>}
+        </dialog>
       </div>
     </div>
   );
