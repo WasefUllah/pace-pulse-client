@@ -4,12 +4,14 @@ import { AuthContext } from "../../Provider/AuthProvider";
 import MakeBlurText from "../MakeBlurText.jsx/MakeBlurText";
 import { format } from "date-fns";
 import UpdateMarathon from "../UpdateMarathon/UpdateMarathon";
+import Swal from "sweetalert2";
 
 const MyMarathonList = () => {
   const [marathons, setMarathons] = useState([]);
   const { user } = useContext(AuthContext);
   const [id, setId] = useState(null);
-   const [refresh, setRefresh] = useState(false);
+  const [refresh, setRefresh] = useState(false);
+  console.log(id);
 
   useEffect(() => {
     axios(`http://localhost:3000/allmarathons?email=${user.email}`)
@@ -66,7 +68,38 @@ const MyMarathonList = () => {
                     >
                       Update
                     </button>
-                    <button className="btn btn-xs md:btn-sm btn-error">
+                    <button
+                      className="btn btn-xs md:btn-sm btn-error"
+                      onClick={() => {
+                        Swal.fire({
+                          title: "Are you sure?",
+                          text: "You won't be able to revert this!",
+                          icon: "warning",
+                          showCancelButton: true,
+                          confirmButtonColor: "#3085d6",
+                          cancelButtonColor: "#d33",
+                          confirmButtonText: "Yes, delete it!",
+                        }).then((result) => {
+                          if (result.isConfirmed) {
+                            axios
+                              .delete(
+                                `http://localhost:3000/allmarathons/${marathon._id}`
+                              )
+                              .then((res) => {
+                                if (res.data.deletedCount) {
+                                  Swal.fire({
+                                    title: "Deleted!",
+                                    text: "Your file has been deleted.",
+                                    icon: "success",
+                                  });
+                                  setRefresh(!refresh);
+                                }
+                              })
+                              .catch((err) => console.log(err));
+                          }
+                        });
+                      }}
+                    >
                       Delete
                     </button>
                   </div>
@@ -76,7 +109,13 @@ const MyMarathonList = () => {
           </tbody>
         </table>
         <dialog id="my_modal_2" className="modal">
-          {id && <UpdateMarathon marathonId={id} refresh={refresh} setRefresh={setRefresh}></UpdateMarathon>}
+          {id && (
+            <UpdateMarathon
+              marathonId={id}
+              refresh={refresh}
+              setRefresh={setRefresh}
+            ></UpdateMarathon>
+          )}
         </dialog>
       </div>
     </div>
