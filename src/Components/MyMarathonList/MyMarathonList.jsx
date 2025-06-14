@@ -35,6 +35,7 @@ const MyMarathonList = () => {
               <th className="px-4 py-3">Distance</th>
               <th className="px-4 py-3">Reg. End Date</th>
               <th className="px-4 py-3">Marathon Date</th>
+              <th className="px-4 py-3">Registration Count</th>
               <th className="px-4 py-3">Actions</th>
             </tr>
           </thead>
@@ -57,6 +58,7 @@ const MyMarathonList = () => {
                     "do MMMM, yyyy"
                   )}
                 </td>
+                <td className="px-4 py-2">{marathon.regCount}</td>
                 <td className="px-4 py-2">
                   <div className="flex flex-col gap-1 md:flex-row md:gap-2">
                     <button

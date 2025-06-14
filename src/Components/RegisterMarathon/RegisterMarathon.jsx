@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
-import { useLocation } from "react-router";
+import { useLocation, useNavigate } from "react-router";
 import axios from "axios";
 import Swal from "sweetalert2";
 
@@ -9,7 +9,7 @@ const RegisterMarathon = () => {
   const location = useLocation();
   //   const marathon = location.state;
 
-  //   const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const marathon = location?.state || {}; // Passed from previous page
   //   console.log(marathon);
@@ -57,6 +57,8 @@ const RegisterMarathon = () => {
           icon: "success",
           draggable: true,
         });
+        form.reset();
+        navigate("/myapplylist");
       }
     } catch (error) {
       console.error("Registration failed:", error);

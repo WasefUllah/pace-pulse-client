@@ -54,9 +54,7 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
       },
-      {
-        path: "/update"
-      },
+      
       {
         path: "/marathons/:id",
         loader: ({ params }) =>
