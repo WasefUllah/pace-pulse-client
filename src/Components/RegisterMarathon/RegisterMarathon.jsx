@@ -7,26 +7,10 @@ import Swal from "sweetalert2";
 const RegisterMarathon = () => {
   const { user } = useContext(AuthContext);
   const location = useLocation();
-  //   const marathon = location.state;
 
   const navigate = useNavigate();
 
-  const marathon = location?.state || {}; // Passed from previous page
-  //   console.log(marathon);
-  //   const [formData, setFormData] = useState({
-  //     firstName: "",
-  //     lastName: "",
-  //     contactNumber: "",
-  //     additionalInfo: "",
-  //   });
-
-  //   const handleChange = (e) => {
-  //     const { name, value } = e.target;
-  //     setFormData((prev) => ({
-  //       ...prev,
-  //       [name]: value,
-  //     }));
-  //   };
+  const marathon = location?.state || {};
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -42,7 +26,7 @@ const RegisterMarathon = () => {
 
     const formData = new FormData(form);
     const registration = Object.fromEntries(formData.entries());
-    registration.userEmail = marathon.createdBy;
+    registration.userEmail = user.email;
     registration.marathonId = marathon._id;
     console.log(registration);
 
@@ -58,7 +42,7 @@ const RegisterMarathon = () => {
           draggable: true,
         });
         form.reset();
-        navigate("/myapplylist");
+        navigate("/dashboard/myapplylist");
       }
     } catch (error) {
       console.error("Registration failed:", error);

@@ -20,6 +20,7 @@ const Navbar = () => {
         // An error happened.
       });
   };
+  console.log(user);
 
   return (
     <div className="navbar bg-base-100 shadow-sm">
@@ -48,21 +49,21 @@ const Navbar = () => {
           >
             <NavLink
               to={"/"}
-              className="py-1 px-2 hover:bg-gray-700 rounded-2xl"
+              className="py-1 px-2 hover:bg-gray-700 rounded-2xl nav-menu"
             >
               Home
             </NavLink>
             {user && (
               <NavLink
                 to={"/dashboard"}
-                className="py-1 px-2 hover:bg-gray-700 rounded-2xl"
+                className="py-1 px-2 hover:bg-gray-700 rounded-2xl nav-menu"
               >
                 Dashboard
               </NavLink>
             )}
             <NavLink
               to={"/marathon"}
-              className="py-1 px-2 hover:bg-gray-700 rounded-2xl"
+              className="py-1 px-2 hover:bg-gray-700 rounded-2xl nav-menu"
             >
               Marathon
             </NavLink>
@@ -78,21 +79,21 @@ const Navbar = () => {
         <ul className="menu menu-horizontal px-1 space-x-2 ">
           <NavLink
             to={"/"}
-            className="py-1 px-2 hover:bg-gray-700 rounded-2xl font-semibold lg:text-lg"
+            className="py-1 px-2 hover:bg-gray-700 rounded-2xl nav-menu font-semibold lg:text-lg"
           >
             Home
           </NavLink>
           {user && (
             <NavLink
               to={"/dashboard"}
-              className="py-1 px-2 hover:bg-gray-700 rounded-2xl font-semibold lg:text-lg"
+              className="py-1 px-2 hover:bg-gray-700 rounded-2xl nav-menu font-semibold lg:text-lg"
             >
               Dashboard
             </NavLink>
           )}
           <NavLink
             to={"/marathon"}
-            className="py-1 px-2 hover:bg-gray-700 rounded-2xl font-semibold lg:text-lg"
+            className="py-1 px-2 hover:bg-gray-700 rounded-2xl nav-menu font-semibold lg:text-lg"
           >
             Marathon
           </NavLink>

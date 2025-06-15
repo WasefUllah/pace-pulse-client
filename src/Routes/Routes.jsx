@@ -13,6 +13,8 @@ import PrivateRoute from "../PrivateRoute/Privateroute";
 import Loader from "../Components/Loader/Loader";
 import ShowMarathonDetails from "../Components/ShowMarathonDetails/ShowMarathonDetails";
 import RegisterMarathon from "../Components/RegisterMarathon/RegisterMarathon";
+import DashboardLayout from "../Layouts/DashboardLayout/DashboardLayout";
+import MakeBlurText from "../Components/MakeBlurText.jsx/MakeBlurText";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -22,39 +24,15 @@ export const router = createBrowserRouter([
         index: true,
         Component: Home,
       },
-      {
-        path: "/dashboard",
-        Component: DashBoard,
-      },
+      // {
+      //   path: "/dashboard",
+      //   Component: DashBoard,
+      // },
       {
         path: "/marathon",
         Component: Marathon,
       },
-      {
-        path: "/addmarathon",
-        element: (
-          <PrivateRoute>
-            <AddMarathon></AddMarathon>
-          </PrivateRoute>
-        ),
-      },
-      {
-        path: "/mymarathonlist",
-        element: (
-          <PrivateRoute>
-            <MyMarathonList></MyMarathonList>
-          </PrivateRoute>
-        ),
-      },
-      {
-        path: "/myapplylist",
-        element: (
-          <PrivateRoute>
-            <MyApplyList></MyApplyList>
-          </PrivateRoute>
-        ),
-      },
-      
+
       {
         path: "/marathons/:id",
         loader: ({ params }) =>
@@ -81,6 +59,48 @@ export const router = createBrowserRouter([
       {
         path: "/register",
         Component: Register,
+      },
+    ],
+  },
+  {
+    path: "/dashboard",
+    element: (
+      <PrivateRoute>
+        <DashboardLayout></DashboardLayout>
+      </PrivateRoute>
+    ),
+    children: [
+      {
+        index: true,
+        element: (
+          <div className="flex items-center justify-center text-primary font-bold text-2xl md:text-5xl lg:text-7xl mt-4 md:mt-20 lg:mt-40">
+            <MakeBlurText text={"welcome to dashboard"}></MakeBlurText>
+          </div>
+        ),
+      },
+      {
+        path: "/dashboard/addmarathon",
+        element: (
+          <PrivateRoute>
+            <AddMarathon></AddMarathon>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/dashboard/mymarathonlist",
+        element: (
+          <PrivateRoute>
+            <MyMarathonList></MyMarathonList>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/dashboard/myapplylist",
+        element: (
+          <PrivateRoute>
+            <MyApplyList></MyApplyList>
+          </PrivateRoute>
+        ),
       },
     ],
   },

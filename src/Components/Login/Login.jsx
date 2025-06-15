@@ -14,6 +14,8 @@ const Login = () => {
     const form = e.target;
     const email = form.email.value;
     const pass = form.pass.value;
+    console.log(email, pass);
+
     signInWithEmailPass(email, pass)
       .then((result) => {
         const user = result.user;
@@ -49,9 +51,9 @@ const Login = () => {
             <h1 className="text-4xl font-bold">Login now!</h1>
             <form onSubmit={handleLoginBtn} className="fieldset">
               <label className="label">Email</label>
-              <input type="email" className="input" placeholder="Email" />
+              <input name="email" type="email" className="input" placeholder="Email" />
               <label className="label">Password</label>
-              <input type="password" className="input" placeholder="Password" />
+              <input name="pass" type="password" className="input" placeholder="Password" />
               <div>
                 <p>
                   Don't have an account? Click here to{" "}

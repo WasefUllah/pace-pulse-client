@@ -4,6 +4,10 @@
 * {
   font-family: "Poppins", sans-serif;
 }
-.active {
+
+.nav-menu.active {
  background-color: rgb(124, 117, 117);
+}
+.dash-menu.active {
+  text-decoration: underline;
 }

@@ -4,13 +4,16 @@ import { AuthContext } from "../../Provider/AuthProvider";
 import MakeBlurText from "../MakeBlurText.jsx/MakeBlurText";
 import { format } from "date-fns";
 import Swal from "sweetalert2";
+import UpdateMyAppliedMarathon from "../UpdateMyAppliedMarathon/UpdateMyAppliedMarathon";
 
 const MyApplyList = () => {
   const { user } = useContext(AuthContext);
   const [id, setId] = useState();
+  // const [single, setSingle] = useState(null);
   const [refresh, setRefresh] = useState(false);
   const [marathons, setMarathons] = useState([]);
   const [registrations, setRegistrations] = useState([]);
+  // console.log(single);
 
   useEffect(() => {
     axios(`http://localhost:3000/applied?email=${user.email}`)
@@ -73,10 +76,20 @@ const MyApplyList = () => {
                 </td>
                 <td className="px-4 py-2">{registration.contactNumber}</td>
                 <td className="px-4 py-2">
-                  {/* {format(
-                    new Date(marathon.marathonStartDate),
-                    "do MMMM, yyyy"
-                  )} */}
+                  {(() => {
+                    const marathon = marathons.find(
+                      (mar) => mar._id.toString() === registration.marathonId
+                    );
+
+                    if (marathon && marathon.marathonStartDate) {
+                      const date = new Date(marathon.marathonStartDate);
+                      if (!isNaN(date.getTime())) {
+                        return format(date, "do MMMM, yyyy");
+                      }
+                    }
+
+                    return "Date not available";
+                  })()}
                 </td>
                 <td className="px-4 py-2">{registration.userEmail}</td>
                 <td className="px-4 py-2">
@@ -85,7 +98,7 @@ const MyApplyList = () => {
                       className="btn btn-xs md:btn-sm btn-primary"
                       onClick={() => {
                         setId(registration._id);
-                        axios("");
+
                         document.getElementById("my_modal_2").showModal();
                       }}
                     >
@@ -94,6 +107,7 @@ const MyApplyList = () => {
                     <button
                       className="btn btn-xs md:btn-sm btn-error"
                       onClick={() => {
+                        // setSingle(registration.marathonId);
                         Swal.fire({
                           title: "Are you sure?",
                           text: "You won't be able to revert this!",
@@ -104,21 +118,28 @@ const MyApplyList = () => {
                           confirmButtonText: "Yes, delete it!",
                         }).then((result) => {
                           if (result.isConfirmed) {
-                            axios
-                              .delete(
-                                `http://localhost:3000/allmarathons/${registration._id}`
-                              )
-                              .then((res) => {
-                                if (res.data.deletedCount) {
-                                  Swal.fire({
-                                    title: "Deleted!",
-                                    text: "Your file has been deleted.",
-                                    icon: "success",
-                                  });
-                                  setRefresh(!refresh);
-                                }
-                              })
-                              .catch((err) => console.log(err));
+                            try {
+                              axios
+                                .delete(
+                                  `http://localhost:3000/registrations/${registration._id}`
+                                )
+                                .then((res) => {
+                                  if (res.data.deletedCount) {
+                                    Swal.fire({
+                                      title: "Deleted!",
+                                      text: "Your file has been deleted.",
+                                      icon: "success",
+                                    });
+                                    setRefresh(!refresh);
+                                  }
+                                });
+
+                              axios.patch(
+                                `http://localhost:3000/marathon/decrement/${registration.marathonId}`
+                              );
+                            } catch (error) {
+                              console.log(error);
+                            }
                           }
                         });
                       }}
@@ -133,11 +154,11 @@ const MyApplyList = () => {
         </table>
         <dialog id="my_modal_2" className="modal">
           {id && (
-            <UpdateMarathon
-              marathonId={id}
+            <UpdateMyAppliedMarathon
+              registrationId={id}
               refresh={refresh}
               setRefresh={setRefresh}
-            ></UpdateMarathon>
+            ></UpdateMyAppliedMarathon>
           )}
         </dialog>
       </div>
