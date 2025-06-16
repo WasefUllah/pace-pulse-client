@@ -2,7 +2,6 @@ import { createBrowserRouter } from "react-router";
 import HomeLayout from "../Layouts/HomeLayout/HomeLayout";
 import Home from "../Components/Home/Home";
 import Error from "../Components/Error/Error";
-import DashBoard from "../Components/DashBoard/DashBoard";
 import Marathon from "../Components/Marathon/Marathon";
 import AddMarathon from "../Components/AddMarathon/AddMarathon";
 import MyMarathonList from "../Components/MyMarathonList/MyMarathonList";
@@ -24,10 +23,6 @@ export const router = createBrowserRouter([
         index: true,
         Component: Home,
       },
-      // {
-      //   path: "/dashboard",
-      //   Component: DashBoard,
-      // },
       {
         path: "/marathon",
         Component: Marathon,

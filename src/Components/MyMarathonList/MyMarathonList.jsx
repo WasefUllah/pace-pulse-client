@@ -14,7 +14,11 @@ const MyMarathonList = () => {
   console.log(id);
 
   useEffect(() => {
-    axios(`http://localhost:3000/allmarathons?email=${user.email}`)
+    axios(`http://localhost:3000/allmarathons?email=${user.email}`, {
+      headers: {
+        Authorization: `Bearer ${user.accessToken}`,
+      },
+    })
       .then((res) => setMarathons(res.data))
       .catch((err) => console.log(err));
   }, [user.email, refresh]);

@@ -1,0 +1,30 @@
+[
+  {
+    "question": "What is PacePulse?",
+    "answer": "PacePulse is a platform for organizing and participating in marathon events. Users can create, join, and manage marathons easily."
+  },
+  {
+    "question": "How do I register for a marathon?",
+    "answer": "Go to the marathon details page and click on the 'Register' button. Fill out your details and confirm your registration."
+  },
+  {
+    "question": "Can I create my own marathon event?",
+    "answer": "Yes, once you're logged in, you can create a marathon by providing details such as event name, location, date, and participant limits."
+  },
+  {
+    "question": "Is login required to view marathons?",
+    "answer": "No, anyone can view public marathon events. However, registration and event creation require login."
+  },
+  {
+    "question": "How is my data secured?",
+    "answer": "We use Firebase Authentication for secure login and HTTP-only cookies or JWT tokens to protect your session. Your data is stored securely in MongoDB Atlas."
+  },
+  {
+    "question": "Can I cancel my registration?",
+    "answer": "Yes, go to your dashboard or the 'My Registrations' section and click 'Cancel' on the marathon you want to withdraw from."
+  },
+  {
+    "question": "How do I contact support?",
+    "answer": "For support, you can email us at support@pacepulse.com or use the contact form available on our website."
+  }
+]

@@ -8,7 +8,7 @@ const MarathonCard = ({ marathons }) => {
   return (
     <div>
       <BlurText
-        text="Upcoming Marathons"
+        text="Featured Marathons"
         delay={150}
         animateBy="words"
         direction="top"

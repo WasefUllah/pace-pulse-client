@@ -9,7 +9,7 @@ const Marathon = () => {
   const [marathons, setMarathons] = useState([]);
 
   useEffect(() => {
-    axios("http://localhost:3000/allmarathons")
+    axios("http://localhost:3000/allmarathonswithoutemail")
       .then((res) => setMarathons(res.data))
       .catch((err) => console.log(err));
   }, []); // empty dependency array = run once when component mounts

@@ -16,7 +16,11 @@ const MyApplyList = () => {
   // console.log(single);
 
   useEffect(() => {
-    axios(`http://localhost:3000/applied?email=${user.email}`)
+    axios(`http://localhost:3000/applied?email=${user.email}`, {
+      headers: {
+        Authorization: `Bearer ${user.accessToken}`,
+      },
+    })
       .then((res) => {
         console.log(res.data);
 
@@ -24,15 +28,24 @@ const MyApplyList = () => {
       })
       .catch((err) => console.log(err));
 
-    axios(`http://localhost:3000/aggrigate?email=${user.email}`)
-      .then((res) => setMarathons(res.data))
+    axios(`http://localhost:3000/aggregate?email=${user.email}`, {
+      headers: {
+        Authorization: `Bearer ${user.accessToken}`,
+      },
+    })
+      .then((res) => {
+        console.log(res);
+
+        setMarathons(res.data);
+      })
       .catch((err) => console.log(err));
   }, [refresh]);
+  console.log(marathons);
 
   return (
     <div className="p-4">
       <div className="text-primary text-xl md:text-3xl lg:text-5xl my-6 text-center">
-        <MakeBlurText text="My Marathons" />
+        <MakeBlurText text="My Applied Marathons" />
       </div>
 
       <div className="overflow-x-auto rounded-xl border border-primary/20">

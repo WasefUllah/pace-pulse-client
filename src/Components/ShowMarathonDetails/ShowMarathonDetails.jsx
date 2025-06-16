@@ -12,7 +12,7 @@ const ShowMarathonDetails = () => {
   const navigate = useNavigate();
 
   const handleRegBtn = () => {
-    if (now > start && now < end) {
+    if (now >= start && now <= end) {
       navigate("/registermarathon", {
         state: marathon,
       });
