@@ -11,7 +11,6 @@ const MyMarathonList = () => {
   const { user } = useContext(AuthContext);
   const [id, setId] = useState(null);
   const [refresh, setRefresh] = useState(false);
-  console.log(id);
 
   useEffect(() => {
     axios(`http://localhost:3000/allmarathons?email=${user.email}`, {

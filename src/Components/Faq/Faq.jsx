@@ -4,7 +4,7 @@ import MakeBlurText from "../MakeBlurText.jsx/MakeBlurText";
 
 const Faq = ({ faq }) => {
   return (
-    <div>
+    <div className="mb-4">
       <BlurText
         text="FAQ"
         delay={150}
@@ -12,8 +12,11 @@ const Faq = ({ faq }) => {
         direction="top"
         className="text-primary text-xl md:text-3xl lg:text-5xl font-bold my-4"
       />
-      {faq.map((f) => (
-        <div className="collapse collapse-arrow bg-base-100 border border-base-300">
+      {faq.map((f, index) => (
+        <div
+          key={index}
+          className="collapse collapse-arrow bg-base-100 border border-base-300"
+        >
           <input type="radio" name="my-accordion-2" defaultChecked />
           <div className="collapse-title font-semibold">
             <BlurText
@@ -21,7 +24,7 @@ const Faq = ({ faq }) => {
               delay={80}
               animateBy="words"
               direction="top"
-            //   className="text-primary text-xl md:text-3xl lg:text-5xl font-bold my-4"
+              //   className="text-primary text-xl md:text-3xl lg:text-5xl font-bold my-4"
             />
             {/* <MakeBlurText ></MakeBlurText> */}
           </div>
@@ -31,7 +34,7 @@ const Faq = ({ faq }) => {
               delay={10}
               animateBy="words"
               direction="top"
-            //   className="text-primary text-xl md:text-3xl lg:text-5xl font-bold my-4"
+              //   className="text-primary text-xl md:text-3xl lg:text-5xl font-bold my-4"
             />
             {/* <MakeBlurText text={`${f.answer}`}></MakeBlurText> */}
           </div>
