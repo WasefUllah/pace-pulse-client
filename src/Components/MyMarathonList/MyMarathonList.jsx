@@ -13,11 +13,14 @@ const MyMarathonList = () => {
   const [refresh, setRefresh] = useState(false);
 
   useEffect(() => {
-    axios(`http://localhost:3000/allmarathons?email=${user.email}`, {
-      headers: {
-        Authorization: `Bearer ${user.accessToken}`,
-      },
-    })
+    axios(
+      `https://pace-pulse-server.vercel.app/allmarathons?email=${user.email}`,
+      {
+        headers: {
+          Authorization: `Bearer ${user.accessToken}`,
+        },
+      }
+    )
       .then((res) => setMarathons(res.data))
       .catch((err) => console.log(err));
   }, [user.email, refresh]);
@@ -88,7 +91,7 @@ const MyMarathonList = () => {
                           if (result.isConfirmed) {
                             axios
                               .delete(
-                                `http://localhost:3000/allmarathons/${marathon._id}`
+                                `https://pace-pulse-server.vercel.app/allmarathons/${marathon._id}`
                               )
                               .then((res) => {
                                 if (res.data.deletedCount) {
@@ -114,9 +117,12 @@ const MyMarathonList = () => {
           </tbody>
         </table>
         <dialog id="my_modal_2" className="modal">
-          <form method="dialog" >
+          <form method="dialog">
             {/* if there is a button in form, it will close the modal */}
-            <button id="close-btn-my-marathon" className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
+            <button
+              id="close-btn-my-marathon"
+              className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
+            >
               ✕
             </button>
           </form>

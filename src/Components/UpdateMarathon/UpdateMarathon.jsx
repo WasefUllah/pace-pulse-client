@@ -11,7 +11,7 @@ const UpdateMarathon = ({ marathonId, refresh, setRefresh }) => {
   const [marathonStartDate, setMarathonStartDate] = useState(null);
   const [category, setCategory] = useState(null);
   useEffect(() => {
-    axios(`http://localhost:3000/marathons/${marathonId}`)
+    axios(`https://pace-pulse-server.vercel.app/marathons/${marathonId}`)
       .then((res) => {
         setMarathon(res.data);
         setStartRegDate(marathon.startRegDate);
@@ -32,7 +32,10 @@ const UpdateMarathon = ({ marathonId, refresh, setRefresh }) => {
     marathonData.marathonStartDate = marathonStartDate;
 
     axios
-      .put(`http://localhost:3000/marathon/${marathonId}`, marathonData)
+      .put(
+        `https://pace-pulse-server.vercel.app/marathon/${marathonId}`,
+        marathonData
+      )
       .then((response) => {
         if (response?.data?.modifiedCount) {
           setRefresh(!refresh);

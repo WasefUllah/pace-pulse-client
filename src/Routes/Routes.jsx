@@ -25,13 +25,17 @@ export const router = createBrowserRouter([
       },
       {
         path: "/marathon",
-        element: <PrivateRoute><Marathon></Marathon></PrivateRoute>
+        element: (
+          <PrivateRoute>
+            <Marathon></Marathon>
+          </PrivateRoute>
+        ),
       },
 
       {
         path: "/marathons/:id",
         loader: ({ params }) =>
-          fetch(`http://localhost:3000/marathons/${params.id}`),
+          fetch(`https://pace-pulse-server.vercel.app/marathons/${params.id}`),
         hydrateFallbackElement: <Loader></Loader>,
         element: (
           <PrivateRoute>

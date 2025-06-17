@@ -20,13 +20,12 @@ const Home = () => {
       .then((res) => res.json())
       .then((data) => setFaq(data));
 
-    axios("http://localhost:3000/featuredmarathon")
+    axios("https://pace-pulse-server.vercel.app/featuredmarathon")
       .then((res) => setMarathons(res.data))
       .catch((err) => console.log(err));
 
-    axios("http://localhost:3000/upcomingmarathon")
+    axios("https://pace-pulse-server.vercel.app/upcomingmarathon")
       .then((res) => {
-
         setUpcoming(res.data);
       })
       .catch((err) => console.log(err));

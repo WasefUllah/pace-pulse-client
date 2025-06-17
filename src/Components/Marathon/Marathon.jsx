@@ -11,14 +11,13 @@ const Marathon = () => {
   const [load, setLoad] = useState(true);
 
   useEffect(() => {
-    axios("http://localhost:3000/allmarathonswithoutemail")
+    axios("https://pace-pulse-server.vercel.app/allmarathonswithoutemail")
       .then((res) => {
         setMarathons(res.data);
         setLoad(false);
       })
       .catch((err) => console.log(err));
   }, []);
-
 
   return (
     <div>

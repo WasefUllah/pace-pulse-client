@@ -14,7 +14,7 @@ const MyApplyList = () => {
   const [registrations, setRegistrations] = useState([]);
 
   useEffect(() => {
-    axios(`http://localhost:3000/applied?email=${user.email}`, {
+    axios(`https://pace-pulse-server.vercel.app/applied?email=${user.email}`, {
       headers: {
         Authorization: `Bearer ${user.accessToken}`,
       },
@@ -24,11 +24,14 @@ const MyApplyList = () => {
       })
       .catch((err) => console.log(err));
 
-    axios(`http://localhost:3000/aggregate?email=${user.email}`, {
-      headers: {
-        Authorization: `Bearer ${user.accessToken}`,
-      },
-    })
+    axios(
+      `https://pace-pulse-server.vercel.app/aggregate?email=${user.email}`,
+      {
+        headers: {
+          Authorization: `Bearer ${user.accessToken}`,
+        },
+      }
+    )
       .then((res) => {
         setMarathons(res.data);
       })
@@ -39,10 +42,9 @@ const MyApplyList = () => {
     e.preventDefault();
     // console.log(e.target.value);
     // const title = e.target.search.value;
-    // axios(`http://localhost:3000/search?title=${title}`)
+    // axios(`https://pace-pulse-server.vercel.app/search?title=${title}`)
     //   .then()
     //   .catch((err) => console.log(err));
-    
   };
 
   return (
@@ -61,7 +63,12 @@ const MyApplyList = () => {
             // onKeyUp={(e) => handleSearch(e)}
             className="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
-          <button type="submit" className="btn btn-xs md:btn-md lg:btn-lg btn-primary my-1">Search</button>
+          <button
+            type="submit"
+            className="btn btn-xs md:btn-md lg:btn-lg btn-primary my-1"
+          >
+            Search
+          </button>
         </form>
       </div>
 
@@ -151,7 +158,7 @@ const MyApplyList = () => {
                             try {
                               axios
                                 .delete(
-                                  `http://localhost:3000/registrations/${registration._id}`
+                                  `https://pace-pulse-server.vercel.app/registrations/${registration._id}`
                                 )
                                 .then((res) => {
                                   if (res.data.deletedCount) {
@@ -165,7 +172,7 @@ const MyApplyList = () => {
                                 });
 
                               axios.patch(
-                                `http://localhost:3000/marathon/decrement/${registration.marathonId}`
+                                `https://pace-pulse-server.vercel.app/marathon/decrement/${registration.marathonId}`
                               );
                             } catch (error) {
                               console.log(error);

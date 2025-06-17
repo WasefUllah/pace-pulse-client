@@ -6,7 +6,7 @@ import Swal from "sweetalert2";
 import { AuthContext } from "../../Provider/AuthProvider";
 
 const AddMarathon = () => {
-  const {user} = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
   const [startRegDate, setStartRegDate] = useState(null);
   const [endRegDate, setEndRegDate] = useState(null);
   const [marathonStartDate, setMarathonStartDate] = useState(null);
@@ -21,14 +21,11 @@ const AddMarathon = () => {
     marathonData.endRegDate = endRegDate;
     marathonData.marathonStartDate = marathonStartDate;
     marathonData.createdBy = user.email;
-   
 
     axios
-      .post("http://localhost:3000/marathon", marathonData)
+      .post("https://pace-pulse-server.vercel.app/marathon", marathonData)
       .then((response) => {
-        
         if (response?.data?.insertedId) {
-
           Swal.fire({
             title: "Marathon added successfully!",
             icon: "success",

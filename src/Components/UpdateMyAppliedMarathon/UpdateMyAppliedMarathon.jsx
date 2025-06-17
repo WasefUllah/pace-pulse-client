@@ -6,7 +6,9 @@ const UpdateMyAppliedMarathon = ({ registrationId, refresh, setRefresh }) => {
   //   console.log(registrationId, refresh);
   const [registration, setRegistration] = useState([]);
   useEffect(() => {
-    axios(`http://localhost:3000/registrations/${registrationId}`)
+    axios(
+      `https://pace-pulse-server.vercel.app/registrations/${registrationId}`
+    )
       .then((res) => setRegistration(res.data))
       .catch((err) => console.log(err));
   }, [registrationId, refresh]);
@@ -20,7 +22,7 @@ const UpdateMyAppliedMarathon = ({ registrationId, refresh, setRefresh }) => {
 
     axios
       .put(
-        `http://localhost:3000/registrations/${registrationId}`,
+        `https://pace-pulse-server.vercel.app/registrations/${registrationId}`,
         registrationData
       )
       .then((response) => {

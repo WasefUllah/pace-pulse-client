@@ -21,9 +21,12 @@ const RegisterMarathon = () => {
     registration.marathonId = marathon._id;
 
     try {
-      await axios.post("http://localhost:3000/registrations", registration);
+      await axios.post(
+        "https://pace-pulse-server.vercel.app/registrations",
+        registration
+      );
       const res = await axios.patch(
-        `http://localhost:3000/marathon/increment/${marathon._id}`
+        `https://pace-pulse-server.vercel.app/marathon/increment/${marathon._id}`
       );
       if (res.data.modifiedCount) {
         Swal.fire({
