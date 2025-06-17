@@ -1,5 +1,5 @@
 import Lottie from "lottie-react";
-import React, { useContext } from "react";
+import React, { useContext, } from "react";
 import loginlottie from "../../assets/login.json";
 import { Link, useNavigate } from "react-router";
 import { AuthContext } from "../../Provider/AuthProvider";
@@ -20,6 +20,7 @@ const Login = () => {
         const user = result.user;
         form.reset();
         setUser(user);
+       
         navigate(`${location.state ? location.state : "/"}`);
       })
       .catch((error) => {
@@ -50,9 +51,19 @@ const Login = () => {
             <h1 className="text-4xl font-bold">Login now!</h1>
             <form onSubmit={handleLoginBtn} className="fieldset">
               <label className="label">Email</label>
-              <input name="email" type="email" className="input" placeholder="Email" />
+              <input
+                name="email"
+                type="email"
+                className="input"
+                placeholder="Email"
+              />
               <label className="label">Password</label>
-              <input name="pass" type="password" className="input" placeholder="Password" />
+              <input
+                name="pass"
+                type="password"
+                className="input"
+                placeholder="Password"
+              />
               <div>
                 <p>
                   Don't have an account? Click here to{" "}

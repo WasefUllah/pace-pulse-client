@@ -37,7 +37,7 @@ const CountDown = ({ endTime }) => {
   const daysDuration = days * daySeconds;
   return (
     <div className="App flex flex-col lg:flex-row items-center justify-between">
-     <div>
+     <div className="flex justify-center items-center gap-1">
        <CountdownCircleTimer
         {...timerProps}
         colors="#7E2E84"
@@ -67,7 +67,7 @@ const CountDown = ({ endTime }) => {
       </CountdownCircleTimer>
      </div>
 
-      <div>
+      <div className="flex justify-center items-center gap-1">
         <CountdownCircleTimer
         {...timerProps}
         colors="#EF798A"

@@ -1,12 +1,27 @@
-# React + Vite
+# 🌟 Pace Pulse
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Live Site:** [https://pace-pulse.web.app/](https://pace-pulse.web.app/)
 
-Currently, two official plugins are available:
+Pace Pulse is a dynamic web platform designed to streamline the registration and management of marathon events. Built with modern technologies like React, Tailwind CSS, Firebase, and MongoDB, it delivers a seamless user experience for both organizers and participants.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Key Features
 
-## Expanding the ESLint configuration
+- 🔐 **Secure Authentication** using Firebase with JWT token validation for protected routes.
+- 🏃 **Marathon Showcase & Registration** – View featured and upcoming events, and register easily with just a few clicks.
+- 📊 **Personal Dashboard** – Authenticated users can view and manage their own applied marathons and see event details.
+- 📅 **Live Countdown & Date Handling** – Utilizes `date-fns` and `react-countdown-circle-timer` for real-time event timers.
+- 🛠️ **Interactive UI** – Beautifully styled with Tailwind CSS and enhanced with Framer Motion, Lottie animations, and React Tooltip.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🧩 Tech Stack
+
+- **Frontend:** React, Tailwind CSS, Framer Motion, Lottie React
+- **Backend:** Node.js, Express.js, MongoDB, Firebase Admin SDK
+- **Auth & Hosting:** Firebase Authentication, Firebase Hosting
+- **Utilities:** Axios, Date-fns, SweetAlert2
+
+## 📂 Project Structure
+
+- `client/` – Frontend React App
+- `server/` – Backend Express API connected to MongoDB
+- `.env` – Environment variables for secure credentials
+- `vercel.json` – Configuration for Vercel deployment (if applicable)
