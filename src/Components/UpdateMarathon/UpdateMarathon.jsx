@@ -34,15 +34,14 @@ const UpdateMarathon = ({ marathonId, refresh, setRefresh }) => {
     axios
       .put(`http://localhost:3000/marathon/${marathonId}`, marathonData)
       .then((response) => {
-        console.log(response);
-
         if (response?.data?.modifiedCount) {
+          setRefresh(!refresh);
+          document.getElementById("close-btn-my-marathon").click();
           Swal.fire({
             title: "Marathon updated successfully!",
             icon: "success",
             draggable: true,
           });
-          setRefresh(!refresh);
           form.reset();
         }
       })

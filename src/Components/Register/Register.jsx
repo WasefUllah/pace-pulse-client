@@ -32,7 +32,6 @@ const Register = () => {
       setErrorText(
         "Password must be at least 6 characters long and contain both uppercase and lowercase letters."
       );
-      // console.log(errorText);
       return;
     }
     signUpWithEmailPass(email, pass).then((result) => {

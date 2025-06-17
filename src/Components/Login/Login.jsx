@@ -14,7 +14,6 @@ const Login = () => {
     const form = e.target;
     const email = form.email.value;
     const pass = form.pass.value;
-    console.log(email, pass);
 
     signInWithEmailPass(email, pass)
       .then((result) => {

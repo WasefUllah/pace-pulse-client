@@ -5,7 +5,6 @@ import Swal from "sweetalert2";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
-
   const handleLogoutBtn = () => {
     logOut()
       .then(() => {
@@ -20,7 +19,6 @@ const Navbar = () => {
         // An error happened.
       });
   };
-  console.log(user);
 
   return (
     <div className="navbar bg-base-100 shadow-sm">

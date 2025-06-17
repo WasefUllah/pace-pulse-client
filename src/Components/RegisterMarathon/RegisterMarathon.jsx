@@ -15,20 +15,10 @@ const RegisterMarathon = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const form = e.target;
-
-    // const registrationData = {
-    //   email: user.email,
-    //   marathonId: marathon._id,
-    //   marathonTitle: marathon.title,
-    //   marathonStartDate: marathon.marathonStartDate,
-    //   ...formData,
-    // };
-
     const formData = new FormData(form);
     const registration = Object.fromEntries(formData.entries());
     registration.userEmail = user.email;
     registration.marathonId = marathon._id;
-    console.log(registration);
 
     try {
       await axios.post("http://localhost:3000/registrations", registration);

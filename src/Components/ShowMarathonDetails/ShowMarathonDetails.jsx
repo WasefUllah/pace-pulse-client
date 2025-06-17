@@ -3,6 +3,7 @@ import { useLoaderData, useNavigate } from "react-router";
 import MakeBlurText from "../MakeBlurText.jsx/MakeBlurText";
 import { format } from "date-fns";
 import Swal from "sweetalert2";
+import CountDown from "../CountDown/CountDown";
 
 const ShowMarathonDetails = () => {
   const marathon = useLoaderData();
@@ -43,6 +44,9 @@ const ShowMarathonDetails = () => {
         <div className="relative z-10 text-blue-500 font-bold text-2xl md:text-4xl lg:text-6xl">
           <MakeBlurText text={marathon.title} />
         </div>
+      </div>
+      <div>
+        <CountDown endTime={end / 1000}></CountDown>
       </div>
       <div className=" mt-4 p-6  shadow-lg rounded-xl space-y-4 text-blue-300">
         <div className="text-base md:text-lg text-primary flex justify-start items-start gap-0.5">

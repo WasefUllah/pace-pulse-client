@@ -11,7 +11,6 @@ const Home = () => {
   const [faq, setFaq] = useState([]);
   const [marathons, setMarathons] = useState([]);
   const [upcoming, setUpcoming] = useState([]);
-  console.log(upcoming);
 
   useEffect(() => {
     fetch("blog.json")
@@ -27,7 +26,6 @@ const Home = () => {
 
     axios("http://localhost:3000/upcomingmarathon")
       .then((res) => {
-        // console.log(res.data);
 
         setUpcoming(res.data);
       })

@@ -9,11 +9,9 @@ import UpdateMyAppliedMarathon from "../UpdateMyAppliedMarathon/UpdateMyAppliedM
 const MyApplyList = () => {
   const { user } = useContext(AuthContext);
   const [id, setId] = useState();
-  // const [single, setSingle] = useState(null);
   const [refresh, setRefresh] = useState(false);
   const [marathons, setMarathons] = useState([]);
   const [registrations, setRegistrations] = useState([]);
-  // console.log(single);
 
   useEffect(() => {
     axios(`http://localhost:3000/applied?email=${user.email}`, {
@@ -22,8 +20,6 @@ const MyApplyList = () => {
       },
     })
       .then((res) => {
-        console.log(res.data);
-
         setRegistrations(res.data);
       })
       .catch((err) => console.log(err));
@@ -34,18 +30,39 @@ const MyApplyList = () => {
       },
     })
       .then((res) => {
-        console.log(res);
-
         setMarathons(res.data);
       })
       .catch((err) => console.log(err));
   }, [refresh]);
-  console.log(marathons);
+
+  const handleSearch = (e) => {
+    e.preventDefault();
+    // console.log(e.target.value);
+    // const title = e.target.search.value;
+    // axios(`http://localhost:3000/search?title=${title}`)
+    //   .then()
+    //   .catch((err) => console.log(err));
+    
+  };
 
   return (
     <div className="p-4">
       <div className="text-primary text-xl md:text-3xl lg:text-5xl my-6 text-center">
         <MakeBlurText text="My Applied Marathons" />
+      </div>
+
+      <div className="my-2">
+        <form onSubmit={handleSearch}>
+          <label className="block font-medium text-white mb-1">Search</label>
+          <input
+            type="search"
+            name="search"
+            placeholder="Search by title"
+            // onKeyUp={(e) => handleSearch(e)}
+            className="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+          <button type="submit" className="btn btn-xs md:btn-md lg:btn-lg btn-primary my-1">Search</button>
+        </form>
       </div>
 
       <div className="overflow-x-auto rounded-xl border border-primary/20">
@@ -166,6 +183,15 @@ const MyApplyList = () => {
           </tbody>
         </table>
         <dialog id="my_modal_2" className="modal">
+          <form method="dialog">
+            {/* if there is a button in form, it will close the modal */}
+            <button
+              id="close-btn-my-apply"
+              className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2"
+            >
+              ✕
+            </button>
+          </form>
           {id && (
             <UpdateMyAppliedMarathon
               registrationId={id}

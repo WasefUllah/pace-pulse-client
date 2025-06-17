@@ -114,6 +114,12 @@ const MyMarathonList = () => {
           </tbody>
         </table>
         <dialog id="my_modal_2" className="modal">
+          <form method="dialog" >
+            {/* if there is a button in form, it will close the modal */}
+            <button id="close-btn-my-marathon" className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">
+              ✕
+            </button>
+          </form>
           {id && (
             <UpdateMarathon
               marathonId={id}

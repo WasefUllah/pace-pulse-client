@@ -10,7 +10,6 @@ const UpdateMyAppliedMarathon = ({ registrationId, refresh, setRefresh }) => {
       .then((res) => setRegistration(res.data))
       .catch((err) => console.log(err));
   }, [registrationId, refresh]);
-  console.log(registration);
 
   const handleForm = (e) => {
     e.preventDefault();
@@ -25,9 +24,9 @@ const UpdateMyAppliedMarathon = ({ registrationId, refresh, setRefresh }) => {
         registrationData
       )
       .then((response) => {
-        console.log(response);
-
         if (response?.data?.modifiedCount) {
+          setRefresh(!refresh);
+          document.getElementById("close-btn-my-apply").click();
           Swal.fire({
             title: "Registration updated successfully!",
             icon: "success",

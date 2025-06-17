@@ -25,7 +25,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/marathon",
-        Component: Marathon,
+        element: <PrivateRoute><Marathon></Marathon></PrivateRoute>
       },
 
       {

@@ -26,7 +26,6 @@ const AddMarathon = () => {
     axios
       .post("http://localhost:3000/marathon", marathonData)
       .then((response) => {
-        console.log(response);
         
         if (response?.data?.insertedId) {
 
