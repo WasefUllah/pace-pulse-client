@@ -14,11 +14,11 @@ const MarathonCard = ({ marathons }) => {
         direction="top"
         className="text-primary text-xl md:text-3xl lg:text-5xl font-bold my-4"
       />
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:gap-2 lg:gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 md:gap-2 lg:gap-4">
         {marathons.map((marathon) => (
           <div
             key={marathon._id}
-            className="p-2 min-h-[450px] flex flex-col space-y-1 justify-center"
+            className="p-2 min-h-[520px] flex flex-col space-y-1 justify-center items-center"
           >
             <div className="mb-2 ">
               <img

@@ -12,8 +12,11 @@ const Marathon = () => {
   const [sort, setSort] = useState("");
 
   useEffect(() => {
-    
-    axios(`https://pace-pulse-server.vercel.app/allmarathonswithoutemail?sortoption=${sort}`)
+    console.log("hi");
+    axios(
+      `https://pace-pulse-server.vercel.app/allmarathonswithoutemail?sortOption=${sort}`
+      // `http://localhost:3000/allmarathonswithoutemail?sortOption=${sort}`
+    )
       .then((res) => {
         setMarathons(res.data);
         setLoad(false);
@@ -23,11 +26,11 @@ const Marathon = () => {
 
   return (
     <div className="min-h-screen">
-      <div>
-        <select onChange={(e) => setSort(e.target.value)}>
-          <option value="">Sort by:</option>
-          <option value="registration">Registration Deadline</option>
-          <option value="marathon">Marathon Day</option>
+      <div className="text-center text-primary  mb-8 mt-3">
+        <select onChange={(e) => setSort(e.target.value)} className="border-2 ">
+          <option className="bg-base-200 text-primary " value="">Sort by:</option>
+          <option className="bg-base-200 text-primary " value="registration">Registration Deadline</option>
+          <option className="bg-base-200 text-primary " value="marathon">Marathon Day</option>
         </select>
       </div>
 
@@ -40,7 +43,7 @@ const Marathon = () => {
           {marathons.map((marathon) => (
             <div
               key={marathon._id}
-              className="p-2 min-h-[450px] flex flex-col space-y-1 justify-center"
+              className="p-2 min-h-[500px] flex flex-col space-y-1 justify-between"
             >
               <div className="mb-2 ">
                 <img
