@@ -20,7 +20,7 @@ const Marathon = () => {
       })
       .catch((err) => console.log(err));
   }, [sort]);
-  console.log(sort);
+
   return (
     <div className="min-h-screen">
       <div>
