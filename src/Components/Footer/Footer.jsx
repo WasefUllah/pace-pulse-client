@@ -1,8 +1,18 @@
 import React from "react";
+import { Link } from "react-router";
 
 const Footer = () => {
   return (
     <footer className="footer footer-horizontal footer-center bg-primary text-primary-content p-10">
+       <nav className="grid grid-flow-col gap-4">
+        <Link to={"/aboutUs"}>
+          <a className="link link-hover">About us</a>
+        </Link>
+        <Link to={"/contactUs"}>
+          <a className="link link-hover">Contact</a>
+        </Link>
+        
+      </nav>
       <aside>
         <img
           src={"https://i.ibb.co/wNqn7smp/logo.jpg"}
