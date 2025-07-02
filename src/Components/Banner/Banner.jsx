@@ -4,7 +4,7 @@ import BlurText from "../BlurText/BlurText";
 const Banner = () => {
   return (
     <div>
-      <div className="carousel w-full">
+      <div className="carousel w-full my-5">
         <div
           id="item1"
           className="carousel-item w-full bg-[url(https://i.ibb.co/n8f2BsMX/m10.jpg)] h-[520px] bg-cover bg-center rounded-2xl"

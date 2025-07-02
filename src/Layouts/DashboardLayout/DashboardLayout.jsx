@@ -6,10 +6,10 @@ import MakeBlurText from "../../Components/MakeBlurText.jsx/MakeBlurText";
 
 const DashboardLayout = () => {
   return (
-    <div className="">
+    <div className="min-h-screen">
       <Navbar></Navbar>
       <div className="w-11/12 mx-auto ">
-        <main className="w-11/12 md:container mx-auto md:h-[calc(100vh-150px)] md:grid md:grid-cols-8 md:gap-4">
+        <main className="w-11/12 md:container mx-auto md:h-[calc(100vh-150px)] md:grid md:grid-cols-8 md:gap-4 min-h-screen">
           <aside className=" md:col-span-2 flex justify-center bg-primary text-white">
             <div className="flex items-center justify-center">
               <div className="flex md:flex-col flex-row my-1 items-center justify-between space-x-3 md:space-y-2 md:pl-2">
@@ -31,7 +31,7 @@ const DashboardLayout = () => {
               </div>
             </div>
           </aside>
-          <div className="md:col-span-6 md:h-full md:overflow-y-auto">
+          <div className="md:col-span-6 md:h-full md:overflow-y-auto ">
             <Outlet></Outlet>
           </div>
         </main>

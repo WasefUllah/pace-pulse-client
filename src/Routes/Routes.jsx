@@ -14,6 +14,8 @@ import ShowMarathonDetails from "../Components/ShowMarathonDetails/ShowMarathonD
 import RegisterMarathon from "../Components/RegisterMarathon/RegisterMarathon";
 import DashboardLayout from "../Layouts/DashboardLayout/DashboardLayout";
 import MakeBlurText from "../Components/MakeBlurText.jsx/MakeBlurText";
+import AboutUs from "../Components/AboutUs/AboutUs";
+import ContactUs from "../Components/ContactUs/ContactUs";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -58,6 +60,14 @@ export const router = createBrowserRouter([
       {
         path: "/register",
         Component: Register,
+      },
+      {
+        path: "/aboutUs",
+        Component: AboutUs,
+      },
+      {
+        path: "/contactUs",
+        Component: ContactUs,
       },
     ],
   },

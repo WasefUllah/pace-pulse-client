@@ -21,7 +21,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="navbar bg-base-100 shadow-sm">
+    <div className="navbar bg-base-100 shadow-sm sticky top-0 z-10">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -65,6 +65,18 @@ const Navbar = () => {
             >
               Marathon
             </NavLink>
+            <NavLink
+              to={"/aboutUs"}
+              className="py-1 px-2 hover:bg-gray-700 rounded-2xl nav-menu"
+            >
+              About Us
+            </NavLink>
+            <NavLink
+              to={"/contactUs"}
+              className="py-1 px-2 hover:bg-gray-700 rounded-2xl nav-menu"
+            >
+              Contact Us
+            </NavLink>
           </ul>
         </div>
         <img
@@ -94,6 +106,18 @@ const Navbar = () => {
             className="py-1 px-2 hover:bg-gray-700 rounded-2xl nav-menu font-semibold lg:text-lg"
           >
             Marathon
+          </NavLink>
+          <NavLink
+            to={"/aboutUs"}
+            className="py-1 px-2 hover:bg-gray-700 rounded-2xl nav-menu font-semibold lg:text-lg"
+          >
+            About Us
+          </NavLink>
+          <NavLink
+            to={"/contactUs"}
+            className="py-1 px-2 hover:bg-gray-700 rounded-2xl nav-menu font-semibold lg:text-lg"
+          >
+            Contact Us
           </NavLink>
         </ul>
       </div>

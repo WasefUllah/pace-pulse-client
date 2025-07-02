@@ -9,18 +9,28 @@ import Loader from "../Loader/Loader";
 const Marathon = () => {
   const [marathons, setMarathons] = useState([]);
   const [load, setLoad] = useState(true);
+  const [sort, setSort] = useState("");
 
   useEffect(() => {
-    axios("https://pace-pulse-server.vercel.app/allmarathonswithoutemail")
+    
+    axios(`https://pace-pulse-server.vercel.app/allmarathonswithoutemail?sortoption=${sort}`)
       .then((res) => {
         setMarathons(res.data);
         setLoad(false);
       })
       .catch((err) => console.log(err));
-  }, []);
-
+  }, [sort]);
+  console.log(sort);
   return (
-    <div>
+    <div className="min-h-screen">
+      <div>
+        <select onChange={(e) => setSort(e.target.value)}>
+          <option value="">Sort by:</option>
+          <option value="registration">Registration Deadline</option>
+          <option value="marathon">Marathon Day</option>
+        </select>
+      </div>
+
       {load ? (
         <div className="flex items-center justify-center">
           <span className="loading loading-infinity h-screen mx-auto w-1/6"></span>

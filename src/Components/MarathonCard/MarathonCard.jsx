@@ -6,7 +6,7 @@ import { Link } from "react-router";
 
 const MarathonCard = ({ marathons }) => {
   return (
-    <div>
+    <div className="my-20">
       <BlurText
         text="Featured Marathons"
         delay={150}

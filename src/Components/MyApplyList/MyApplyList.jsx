@@ -38,14 +38,14 @@ const MyApplyList = () => {
       .catch((err) => console.log(err));
   }, [refresh]);
 
-  const handleSearch = (e) => {
-    e.preventDefault();
-    // console.log(e.target.value);
-    // const title = e.target.search.value;
-    // axios(`https://pace-pulse-server.vercel.app/search?title=${title}`)
-    //   .then()
-    //   .catch((err) => console.log(err));
-  };
+  // const handleSearch = (e) => {
+  //   e.preventDefault();
+  // console.log(e.target.value);
+  // const title = e.target.search.value;
+  // axios(`https://pace-pulse-server.vercel.app/search?title=${title}`)
+  //   .then()
+  //   .catch((err) => console.log(err));
+  // };
 
   return (
     <div className="p-4">
@@ -53,7 +53,7 @@ const MyApplyList = () => {
         <MakeBlurText text="My Applied Marathons" />
       </div>
 
-      <div className="my-2">
+      {/* <div className="my-2">
         <form onSubmit={handleSearch}>
           <label className="block font-medium text-white mb-1">Search</label>
           <input
@@ -70,7 +70,7 @@ const MyApplyList = () => {
             Search
           </button>
         </form>
-      </div>
+      </div> */}
 
       <div className="overflow-x-auto rounded-xl border border-primary/20">
         <table className="min-w-full text-sm md:text-base text-left text-primary">

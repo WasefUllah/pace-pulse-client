@@ -3,7 +3,7 @@ import BlurText from "../BlurText/BlurText";
 
 const Blog = ({ blogs }) => {
   return (
-    <div>
+    <div className="mt-10 mb-20">
       <BlurText
         text="Blogs"
         delay={150}
