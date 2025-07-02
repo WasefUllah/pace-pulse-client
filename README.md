@@ -1,7 +1,7 @@
 # 🌟 Pace Pulse
 
 **Live Site:** [https://pace-pulse.web.app/](https://pace-pulse.web.app/)
-
+**Server repo** https://github.com/WasefUllah/pace-pulse-server
 **Pace Pulse** is a dynamic web platform designed to streamline the registration and management of marathon events. Built with modern technologies like React, Tailwind CSS, Firebase, and MongoDB, it delivers a seamless user experience for both organizers and participants.
 
 ---
