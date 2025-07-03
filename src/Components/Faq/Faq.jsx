@@ -1,6 +1,6 @@
 import React from "react";
 import BlurText from "../BlurText/BlurText";
-import MakeBlurText from "../MakeBlurText.jsx/MakeBlurText";
+import MakeBlurText from "../MakeBlurText/MakeBlurText";
 
 const Faq = ({ faq }) => {
   return (

@@ -2,7 +2,7 @@ import React from "react";
 import Navbar from "../../Components/Navbar/Navbar";
 import Footer from "../../Components/Footer/Footer";
 import { NavLink, Outlet } from "react-router";
-import MakeBlurText from "../../Components/MakeBlurText.jsx/MakeBlurText";
+import MakeBlurText from "../../Components/MakeBlurText/MakeBlurText";
 
 const DashboardLayout = () => {
   return (
@@ -19,7 +19,10 @@ const DashboardLayout = () => {
                   </NavLink>
                 </div>
                 <div className=" text-center text-xs md:text-lg">
-                  <NavLink to={"/dashboard/mymarathonlist"} className="dash-menu">
+                  <NavLink
+                    to={"/dashboard/mymarathonlist"}
+                    className="dash-menu"
+                  >
                     <MakeBlurText text={"My marathon list"}></MakeBlurText>
                   </NavLink>
                 </div>

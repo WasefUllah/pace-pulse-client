@@ -13,7 +13,7 @@ import Loader from "../Components/Loader/Loader";
 import ShowMarathonDetails from "../Components/ShowMarathonDetails/ShowMarathonDetails";
 import RegisterMarathon from "../Components/RegisterMarathon/RegisterMarathon";
 import DashboardLayout from "../Layouts/DashboardLayout/DashboardLayout";
-import MakeBlurText from "../Components/MakeBlurText.jsx/MakeBlurText";
+import MakeBlurText from "../Components/MakeBlurText/MakeBlurText";
 import AboutUs from "../Components/AboutUs/AboutUs";
 import ContactUs from "../Components/ContactUs/ContactUs";
 export const router = createBrowserRouter([

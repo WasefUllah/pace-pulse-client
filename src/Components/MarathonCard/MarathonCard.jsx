@@ -1,5 +1,5 @@
 import React from "react";
-import MakeBlurText from "../MakeBlurText.jsx/MakeBlurText";
+import MakeBlurText from "../MakeBlurText/MakeBlurText";
 import BlurText from "../BlurText/BlurText";
 import { format } from "date-fns";
 import { Link } from "react-router";

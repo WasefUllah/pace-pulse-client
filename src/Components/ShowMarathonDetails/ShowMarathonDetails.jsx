@@ -1,6 +1,6 @@
 import React from "react";
 import { useLoaderData, useNavigate } from "react-router";
-import MakeBlurText from "../MakeBlurText.jsx/MakeBlurText";
+import MakeBlurText from "../MakeBlurText/MakeBlurText";
 import { format } from "date-fns";
 import Swal from "sweetalert2";
 import CountDown from "../CountDown/CountDown";

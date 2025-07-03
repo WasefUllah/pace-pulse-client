@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useState, useEffect } from "react";
 import MarathonCard from "../MarathonCard/MarathonCard";
 import { format } from "date-fns";
-import MakeBlurText from "../MakeBlurText.jsx/MakeBlurText";
+import MakeBlurText from "../MakeBlurText/MakeBlurText";
 import { Link } from "react-router";
 import Loader from "../Loader/Loader";
 
