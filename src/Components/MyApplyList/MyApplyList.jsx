@@ -170,7 +170,6 @@ const MyApplyList = () => {
                                     setRefresh(!refresh);
                                   }
                                 });
-
                               axios.patch(
                                 `https://pace-pulse-server.vercel.app/marathon/decrement/${registration.marathonId}`
                               );

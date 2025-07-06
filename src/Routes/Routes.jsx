@@ -16,6 +16,8 @@ import DashboardLayout from "../Layouts/DashboardLayout/DashboardLayout";
 import MakeBlurText from "../Components/MakeBlurText/MakeBlurText";
 import AboutUs from "../Components/AboutUs/AboutUs";
 import ContactUs from "../Components/ContactUs/ContactUs";
+import Success from "../Components/Success/Success";
+import Failed from "../Components/Failed/Failed";
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -69,6 +71,14 @@ export const router = createBrowserRouter([
         path: "/contactUs",
         Component: ContactUs,
       },
+      {
+        path: "/success/:tranId",
+        Component: Success,
+      },
+      {
+        path: "/failed",
+        Component: Failed,
+      },
     ],
   },
   {
@@ -112,6 +122,14 @@ export const router = createBrowserRouter([
         ),
       },
     ],
+  },
+  {
+    path: "/success/:tranId",
+    Component: Success,
+  },
+  {
+    path: "/failed",
+    Component: Failed,
   },
   {
     path: "/*",

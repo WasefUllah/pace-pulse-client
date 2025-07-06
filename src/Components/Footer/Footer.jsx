@@ -4,14 +4,13 @@ import { Link } from "react-router";
 const Footer = () => {
   return (
     <footer className="footer footer-horizontal footer-center bg-primary text-primary-content p-10">
-       <nav className="grid grid-flow-col gap-4">
+      <nav className="grid grid-flow-col gap-4">
         <Link to={"/aboutUs"}>
-          <a className="link link-hover">About us</a>
+          <p className="link link-hover">About us</p>
         </Link>
         <Link to={"/contactUs"}>
-          <a className="link link-hover">Contact</a>
+          <p className="link link-hover">Contact</p>
         </Link>
-        
       </nav>
       <aside>
         <img

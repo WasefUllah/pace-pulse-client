@@ -61,6 +61,13 @@ const ShowMarathonDetails = () => {
 
         <div className="text-base md:text-lg text-primary flex justify-start items-center gap-0.5">
           <span className="font-semibold">
+            <MakeBlurText text="Registration fee: " />
+          </span>
+          <MakeBlurText text={marathon?.fee} />
+        </div>
+
+        <div className="text-base md:text-lg text-primary flex justify-start items-center gap-0.5">
+          <span className="font-semibold">
             <MakeBlurText text="Location: " />
           </span>
           <MakeBlurText text={marathon.location} />

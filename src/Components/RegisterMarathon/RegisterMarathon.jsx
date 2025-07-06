@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
-import { useLocation, useNavigate } from "react-router";
+import { useLocation } from "react-router";
 import axios from "axios";
 import Swal from "sweetalert2";
 
@@ -8,7 +8,7 @@ const RegisterMarathon = () => {
   const { user } = useContext(AuthContext);
   const location = useLocation();
 
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   const marathon = location?.state || {};
 
@@ -19,24 +19,17 @@ const RegisterMarathon = () => {
     const registration = Object.fromEntries(formData.entries());
     registration.userEmail = user.email;
     registration.marathonId = marathon._id;
-
+    registration.fee = marathon.fee;
+    console.log(registration);
     try {
-      await axios.post(
-        "https://pace-pulse-server.vercel.app/registrations",
-        registration
-      );
-      const res = await axios.patch(
-        `https://pace-pulse-server.vercel.app/marathon/increment/${marathon._id}`
-      );
-      if (res.data.modifiedCount) {
-        Swal.fire({
-          title: "Registration complete!",
-          icon: "success",
-          draggable: true,
-        });
-        form.reset();
-        navigate("/dashboard/myapplylist");
-      }
+      await axios
+        .post(
+          "https://pace-pulse-server.vercel.app/registrations",
+          // "http://localhost:3000/registrations",
+          registration
+        )
+        .then((res) => window.location.replace(res.data.url));
+     
     } catch (error) {
       console.error("Registration failed:", error);
     }
@@ -114,7 +107,7 @@ const RegisterMarathon = () => {
           />
         </div>
         <button type="submit" className="btn btn-primary w-full">
-          Submit Registration
+          Register for {marathon?.fee}
         </button>
       </form>
     </div>

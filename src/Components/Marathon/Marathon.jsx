@@ -12,10 +12,8 @@ const Marathon = () => {
   const [sort, setSort] = useState("");
 
   useEffect(() => {
-    console.log("hi");
     axios(
       `https://pace-pulse-server.vercel.app/allmarathonswithoutemail?sortOption=${sort}`
-      // `http://localhost:3000/allmarathonswithoutemail?sortOption=${sort}`
     )
       .then((res) => {
         setMarathons(res.data);
