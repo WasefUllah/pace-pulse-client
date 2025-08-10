@@ -23,7 +23,7 @@ const MarathonCard = ({ marathons }) => {
             <div className="mb-2 ">
               <img
                 src={marathon.photo}
-                alt=""
+                alt="marathon photo"
                 className="w-full h-74 object-center rounded-2xl"
               />
             </div>

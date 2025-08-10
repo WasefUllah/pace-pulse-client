@@ -5,7 +5,7 @@ const Error = () => {
     <div className="w-11/12 mx-auto flex flex-col justify-center items-center gap-6">
       <img
         src={"https://i.ibb.co/fY784y0H/error2.jpg"}
-        alt=""
+        alt="error"
         className="rounded-lg w-[800px] h-[500px]"
       />
       <h1 className="text-4xl text-red-600 ">404 - page not found</h1>

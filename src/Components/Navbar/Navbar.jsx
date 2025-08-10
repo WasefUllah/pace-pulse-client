@@ -81,7 +81,7 @@ const Navbar = () => {
         </div>
         <img
           src={"https://i.ibb.co/wNqn7smp/logo.jpg"}
-          alt=""
+          alt="logo"
           className="w-10 h-10 md:w-14 md:h-14 lg:w-16 lg:h-16 rounded-full"
         />
       </div>
@@ -125,7 +125,7 @@ const Navbar = () => {
         {user && (
           <img
             src={user?.photoURL}
-            alt=""
+            alt="user photo"
             className="w-10 h-10 md:w-14 md:h-14 lg:w-16 lg:h-16 rounded-full"
           />
         )}
