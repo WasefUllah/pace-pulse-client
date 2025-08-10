@@ -1,6 +1,6 @@
 import Lottie from "lottie-react";
-import React, { useContext, } from "react";
-import loginlottie from "../../assets/login.json";
+import React, { useContext } from "react";
+import loginLottie from "../../assets/login.json";
 import { Link, useNavigate } from "react-router";
 import { AuthContext } from "../../Provider/AuthProvider";
 const Login = () => {
@@ -20,7 +20,7 @@ const Login = () => {
         const user = result.user;
         form.reset();
         setUser(user);
-       
+
         navigate(`${location.state ? location.state : "/"}`);
       })
       .catch((error) => {
@@ -44,7 +44,7 @@ const Login = () => {
     <div className="hero bg-base-200 min-h-screen">
       <div className="hero-content flex-col lg:flex-row-reverse">
         <div className="text-center lg:text-left">
-          <Lottie animationData={loginlottie} style={{ height: 250 }}></Lottie>
+          <Lottie animationData={loginLottie} style={{ height: 250 }}></Lottie>
         </div>
         <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
           <div className="card-body">
