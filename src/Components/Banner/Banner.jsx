@@ -19,7 +19,7 @@ const Banner = () => {
               className="text-3xl md:text-6xl lg:text-8xl text-blue-700 font-bold mt-44 ml-5 md:ml-10 md:mt-40 lg:ml-20 lg:mt-40 "
             />
             <BlurText
-              text="Discover marathons that match your pace and passion."
+              text="Discover marathons that match your pace and passion"
               delay={150}
               animateBy="words"
               direction="top"
@@ -40,7 +40,7 @@ const Banner = () => {
               className="text-3xl md:text-6xl lg:text-8xl text-blue-700  font-bold mt-44 ml-5 md:ml-10 md:mt-40 lg:ml-20 lg:mt-40 "
             />
             <BlurText
-              text="Browse, apply, and prepare for races around the globe."
+              text="Browse, apply, and prepare for races around the globe"
               delay={150}
               animateBy="words"
               direction="top"
@@ -54,14 +54,14 @@ const Banner = () => {
         >
           <div className="flex flex-col">
             <BlurText
-              text="Track. Train. Triumph."
+              text="Track. Train. Triumph"
               delay={150}
               animateBy="words"
               direction="top"
               className="text-3xl md:text-6xl lg:text-8xl text-blue-700 font-bold mt-44 ml-5 md:ml-10 md:mt-40 lg:ml-20 lg:mt-40 "
             />
             <BlurText
-              text="Keep your marathon goals in focus—one step at a time.."
+              text="Keep your marathon goals in focus—one step at a time"
               delay={150}
               animateBy="words"
               direction="top"
