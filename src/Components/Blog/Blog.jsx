@@ -30,7 +30,7 @@ const Blog = ({ blogs }) => {
                     delay={150}
                     animateBy="words"
                     direction="top"
-                    // className="text-primary text-xl md:text-3xl lg:text-5xl font-bold my-4"
+         
                   />
                 </div>
                 <p className="text-sm text-gray-500">Rating: {blog.rating}⭐</p>
@@ -42,7 +42,7 @@ const Blog = ({ blogs }) => {
                 delay={150}
                 animateBy="words"
                 direction="top"
-                // className="text-primary text-xl md:text-3xl lg:text-5xl font-bold my-4"
+              
               />
             </div>
           </div>

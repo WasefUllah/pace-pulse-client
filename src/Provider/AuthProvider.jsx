@@ -14,7 +14,7 @@ import { auth } from "../Firebase/firebase.config";
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
-  console.log(loading);
+
   const googleProvider = new GoogleAuthProvider();
   // Google sign in
   const signInWithGoogle = () => {
