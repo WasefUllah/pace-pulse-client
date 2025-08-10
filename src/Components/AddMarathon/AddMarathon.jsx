@@ -109,7 +109,6 @@ const AddMarathon = () => {
             />
           </div>
 
-
           {/* Location */}
           <div>
             <label className="block font-medium text-white mb-1">

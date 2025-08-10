@@ -25,7 +25,7 @@ const ContactUs = () => {
           <p>
             Email:{" "}
             <span className="link link-hover text-primary">
-              support@pacepulse.com
+              wasefudvash@gmail.com
             </span>
           </p>
           <p>Phone: +880-1234-567890</p>

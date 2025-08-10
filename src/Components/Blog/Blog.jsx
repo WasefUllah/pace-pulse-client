@@ -36,7 +36,7 @@ const Blog = ({ blogs }) => {
                 <p className="text-sm text-gray-500">Rating: {blog.rating}⭐</p>
               </div>
             </div>
-            <div className="text-gray-700">
+            <div className="text-white">
               <BlurText
                 text={blog.comment}
                 delay={150}
