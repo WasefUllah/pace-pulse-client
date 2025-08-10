@@ -9,7 +9,7 @@ const Error = () => {
         className="rounded-lg w-[800px] h-[500px]"
       />
       <h1 className="text-4xl text-red-600 ">404 - page not found</h1>
-      <p>Opss!! the page you are looking for doesn't exists</p>
+      <p>Sorry!! the page you are looking for doesn't exists</p>
 
       <NavLink to={"/"}>
         <button className="btn btn-primary bg-primary text-black border-none">
