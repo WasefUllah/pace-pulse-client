@@ -38,14 +38,7 @@ const MyApplyList = () => {
       .catch((err) => console.log(err));
   }, [refresh]);
 
-  // const handleSearch = (e) => {
-  //   e.preventDefault();
-  // console.log(e.target.value);
-  // const title = e.target.search.value;
-  // axios(`https://pace-pulse-server.vercel.app/search?title=${title}`)
-  //   .then()
-  //   .catch((err) => console.log(err));
-  // };
+
 
   return (
     <div className="p-4">
@@ -53,24 +46,7 @@ const MyApplyList = () => {
         <MakeBlurText text="My Applied Marathons" />
       </div>
 
-      {/* <div className="my-2">
-        <form onSubmit={handleSearch}>
-          <label className="block font-medium text-white mb-1">Search</label>
-          <input
-            type="search"
-            name="search"
-            placeholder="Search by title"
-            // onKeyUp={(e) => handleSearch(e)}
-            className="w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
-          <button
-            type="submit"
-            className="btn btn-xs md:btn-md lg:btn-lg btn-primary my-1"
-          >
-            Search
-          </button>
-        </form>
-      </div> */}
+     
 
       <div className="overflow-x-auto rounded-xl border border-primary/20">
         <table className="min-w-full text-sm md:text-base text-left text-primary">
